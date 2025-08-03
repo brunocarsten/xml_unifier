@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  xml-unifier:
+    build: .
+    container_name: xml_unifier
+    volumes:
+      # Mapeia a pasta local 'files' para a pasta 'files' do container
+      - ./files:/app/files
+      # Mapeia o arquivo de saída para o diretório local
+      - ./output:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: sh -c "python xml_unifier.py && cp final_list.xml /app/output/ 2>/dev/null || true"

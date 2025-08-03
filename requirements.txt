@@ -1,0 +1,2 @@
+# Dependências do projeto
+lxml>=4.9.0
